@@ -3,7 +3,7 @@ Angular2 Automatic Scroll Detection With Animation
 
 
 <a href="http://plnkr.co/edit/k5zEfS?p=preview">
-  <img src=""http://i.imgur.com/0qcxg8X.png" width="50% border="1" />
+  <img src=""http://i.imgur.com/9PWnNqe.png" width="50% border="1" />
 </a>
 
 ## Install
