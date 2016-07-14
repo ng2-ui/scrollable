@@ -2,8 +2,7 @@
   var map = {
     app: ".",
     '@angular': '../node_modules/@angular',
-    'rxjs': '../node_modules/rxjs',
-    'ng2-overlay': '../node_modules/ng2-overlay'
+    'rxjs': '../node_modules/rxjs'
   };
   var packages = {
     app: { main: './main.ts', defaultExtension: 'ts' },
