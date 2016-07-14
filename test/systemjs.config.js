@@ -17,8 +17,8 @@
 
   map['ng2-scrollable'] = '../src';
   packages['ng2-scrollable'] = {main: 'index.ts', defaultExtension: 'ts'};
-  // map['ng2-scrollable'] = '../dist';
-  // packages['ng2-scrollable'] = {main: 'index.js', defaultExtension: 'js'};
+  map['ng2-scrollable'] = '../dist';
+  packages['ng2-scrollable'] = {main: 'index.js', defaultExtension: 'js'};
 
   System.config({
     transpiler: 'typescript', //use typescript for compilation
