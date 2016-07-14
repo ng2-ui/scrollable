@@ -1,50 +1,31 @@
-System.config({
-  //use typescript for compilation
-  transpiler: 'typescript',
-  //typescript compiler options
-  typescriptOptions: {
-    emitDecoratorMetadata: true
-  },
-  //map tells the System loader where to look for things
-  map: {
-    app: "./app",
-    '@angular': 'https://npmcdn.com/@angular',
-    'rxjs': 'https://npmcdn.com/rxjs@5.0.0-beta.6',
-    'ng2-scrollable': 'src'
-    
-  },
-  //packages defines our app package
-  packages: {
-    app: {
-      main: './main.ts',
-      defaultExtension: 'ts'
+(function(global) {
+  var map = {
+    app: ".",
+    '@angular': '../node_modules/@angular',
+    'rxjs': '../node_modules/rxjs',
+    'ng2-overlay': '../node_modules/ng2-overlay'
+  };
+  var packages = {
+    app: { main: './main.ts', defaultExtension: 'ts' },
+    '@angular/core': { main: 'bundles/core.umd.js', defaultExtension: 'js' },
+    '@angular/compiler': { main: 'bundles/compiler.umd.js', defaultExtension: 'js' },
+    '@angular/common': { main: 'bundles/common.umd.js', defaultExtension: 'js' },
+    '@angular/platform-browser-dynamic': { main: 'bundles/platform-browser-dynamic.umd.js', defaultExtension: 'js' },
+    '@angular/platform-browser': { main: 'bundles/platform-browser.umd.js', defaultExtension: 'js' },
+    rxjs: { defaultExtension: 'js' }
+  };
+
+  map['ng2-scrollable'] = '../src';
+  packages['ng2-scrollable'] = {main: 'index.ts', defaultExtension: 'ts'};
+  // map['ng2-scrollable'] = '../dist';
+  // packages['ng2-scrollable'] = {main: 'index.js', defaultExtension: 'js'};
+
+  System.config({
+    transpiler: 'typescript', //use typescript for compilation
+    typescriptOptions: {    //typescript compiler options
+      emitDecoratorMetadata: true
     },
-    '@angular/core': {
-      main: 'bundles/core.umd.js',
-      defaultExtension: 'js'
-    },
-    '@angular/compiler': {
-      main: 'bundles/compiler.umd.js',
-      defaultExtension: 'js'
-    },
-    '@angular/common': {
-      main: 'bundles/common.umd.js',
-      defaultExtension: 'js'
-    },
-    '@angular/platform-browser-dynamic': {
-      main: 'bundles/platform-browser-dynamic.umd.js',
-      defaultExtension: 'js'
-    },
-    '@angular/platform-browser': {
-      main: 'bundles/platform-browser.umd.js',
-      defaultExtension: 'js'
-    },
-    rxjs: {
-      defaultExtension: 'js'
-    },
-    'ng2-scrollable': {
-      main: 'index.ts', 
-      defaultExtension: 'ts'
-    }
-  }
-});
+    map: map,
+    packages: packages
+  });
+})(this);

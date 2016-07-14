@@ -18,7 +18,11 @@ import {Ng2ScrollableDirective} from 'ng2-scrollable';
       <li [class.current]="id=='s8'" (click)="scrollTo('#s8')">8
       <li [class.current]="id=='s9'" (click)="scrollTo('#s9')">9
     </ul>
-    <div class="scrollable section" (scrolledTo)="id=$event" ng2-scrollable>
+    <div style="padding-left: 25%">
+      Recently Hidden El Id: {{hidden}}
+    </div>
+    <div class="scrollable section"  ng2-scrollable
+      (scrolledToVisible)="id=$event" (scrolledToHidden)="hidden=$event">
       <div id="s1">Section 1</div>
       <div id="s2">Section 2</div>
       <div id="s3">Section 3</div>
@@ -33,7 +37,7 @@ import {Ng2ScrollableDirective} from 'ng2-scrollable';
     
     <ul class="window">
       Scroll within window<br/>
-      wid: {{wid}}
+      wid: {{wid}} hidden: {{whidden}}
       <li [class.current]="wid=='w1'" (click)="scrollTo('#w1')">One
       <li [class.current]="wid=='w2'" (click)="scrollTo('#w2')">Two
       <li [class.current]="wid=='w3'" (click)="scrollTo('#w3')">Three
@@ -44,7 +48,10 @@ import {Ng2ScrollableDirective} from 'ng2-scrollable';
       <li [class.current]="wid=='w8'" (click)="scrollTo('#w8')">Eight
       <li [class.current]="wid=='w9'" (click)="scrollTo('#w9')">Nine
     </ul>
-    <div class="scrollable window" (scrolledTo)="wid=$event" ng2-scrollable>
+    <div class="scrollable window" 
+      (scrolledToVisible)="wid=$event"
+      (scrolledToHidden)="whidden=$event"
+      ng2-scrollable>
       <div id="w1">One</div>
       <div id="w2">Two</div>
       <div id="w3">Three</div>
