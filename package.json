@@ -1,6 +1,6 @@
 {
   "name": "ng2-scrollable",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Angular2 Scrollable Section Detection With Animation",
   "license": "MIT",
   "main": "dist/index.js",
@@ -35,13 +35,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jsvalley/ng2-scrollable.git"
+    "url": "git+https://github.com/ng2-ui/ng2-scrollable.git"
   },
   "author": "Allen Kim<allenhwkim@gmail.com>",
   "bugs": {
-    "url": "https://github.com/jsvalley/ng2-scrollable/issues"
+    "url": "https://github.com/ng2-ui/ng2-scrollable/issues"
   },
-  "homepage": "https://github.com/jsvalley/ng2-scrollable#readme",
+  "homepage": "https://github.com/ng2-ui/ng2-scrollable#readme",
   "keywords": [
     "angular2",
     "scrollable",
