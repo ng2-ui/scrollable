@@ -9,12 +9,9 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": true,
-    "outDir": "dist",
     "suppressImplicitAnyIndexErrors": true
   },
   "exclude": [
-    "typings/main.d.ts",
-    "typings/main",
     "node_modules",
     "test",
     "src",

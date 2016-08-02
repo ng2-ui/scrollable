@@ -1,0 +1,76 @@
+<fieldset>
+  <legend>Scroll Within a Section Vertically</legend>
+  <ul>
+    <li *ngFor="let num of [1,2,3,4,5,6,7,8,9,10]"
+        [class.current]="id == 's'+ num "
+        (click)="scrollTo('#s'+num, '#v-scrollable')">{{num}}
+  </ul>
+
+  scrolled to: {{id}}
+  <div id="v-scrollable" class="scrollable section"
+       ng2-scrollable (elementVisible)="id = $event.id">
+    <div id="s1">Section 1  (scroll to here)</div>
+    <div id="s2">Section 2  (scroll to here)</div>
+    <div id="s3">Section 3  (scroll to here)</div>
+    <div id="s4">Section 4  (scroll to here)</div>
+    <div id="s5">Section 5  (scroll to here)</div>
+    <div id="s6">Section 6  (scroll to here)</div>
+    <div id="s7">Section 7  (scroll to here)</div>
+    <div id="s8">Section 8  (scroll to here)</div>
+    <div id="s9">Section 9  (scroll to here)</div>
+    <div id="s10">Section 10  (scroll to here)</div>
+  </div>
+</fieldset>
+
+<br/><br/>
+<fieldset>
+  <legend>Scroll Within a Section Horizontally</legend>
+  <ul>
+    <br/>
+    <li *ngFor="let num of [1,2,3,4,5,6,7,8,9,10]"
+        [class.current]="hid == 'h'+ num "
+        (click)="scrollTo('#h'+num, '#h-scrollable', true)">{{num}}
+  </ul>
+
+  scrolled to: {{hid}}
+  <div id="h-scrollable" class="scrollable section horizontal"
+       ng2-scrollable
+       [horizontal]="true"
+       (elementVisible)="hid = $event.id">
+    <div id="h1">Section 1</div>
+    <div id="h2">Section 2</div>
+    <div id="h3">Section 3</div>
+    <div id="h4">Section 4</div>
+    <div id="h5">Section 5</div>
+    <div id="h6">Section 6</div>
+    <div id="h7">Section 7</div>
+    <div id="h8">Section 8</div>
+    <div id="h9">Section 9</div>
+    <div id="h10">Section 10</div>
+  </div>
+</fieldset>
+
+<br/><br/>
+<legend>Scroll Within Window</legend>
+<div class="scrollable window"
+     (elementVisible)="wid = $event.id"
+     (elementHidden)="whid = $event.id"
+     ng2-scrollable>
+  <div id="w1">One</div>
+  <div id="w2">Two</div>
+  <div id="w3">Three</div>
+  <div id="w4">Four</div>
+  <div id="w5">Five</div>
+  <div id="w6">Six</div>
+  <div id="w7">Seven</div>
+  <div id="w8">Eight</div>
+  <div id="w9">Nine</div>
+  <div id="w10">Ten</div>
+</div>
+
+<ul style="position: fixed; bottom: 0; right: 0; z-index: 1; background-color: yellow">
+  id: {{wid}}
+  <li *ngFor="let num of [1,2,3,4,5,6,7,8,9,10]"
+      [class.current]="wid == 'w'+ num "
+      (click)="scrollTo('#w'+num)">{{num}}
+</ul>
