@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Input, Output, EventEmitter } from '@angular/core';
-import { elementVisible } from 'ng2-utils';
+import { elementVisible } from 'ng2-utils/index';
 
 @Directive({
   selector: '[ng2-scrollable]'
@@ -11,7 +11,7 @@ export class Ng2ScrollableDirective {
 
   sections: Element[] = [];
   el: HTMLElement;
-  visible = elementVisible;
+  visible: any = elementVisible;
 
   constructor(el: ElementRef) {
     this.el = el.nativeElement;
@@ -92,7 +92,7 @@ export class Ng2ScrollableDirective {
       Math.ceil((targetOffsetLeft - currentScrollLeft) / 10) :
       Math.ceil((targetOffsetTop - currentScrollTop) / 10);
     let scrollProp = horizontal ? 'scrollLeft' : 'scrollTop';
-    (function loop(i: number, prop): void {
+    (function loop(i: number, prop: any): void {
       setTimeout(function main() {
         scrollContainerEl[prop] += step;
         i > 1 && loop(i - 1, prop);
