@@ -2,9 +2,11 @@
 Angular2 Automatic Scroll Detection With Animation
 
 
-<a href="http://plnkr.co/edit/k5zEfS?p=preview">
+<a href="https://ng2-ui.github.io/#/scrollable">
   <img src="http://i.imgur.com/9PWnNqe.png" width="50% border="1" />
 </a>
+
+Plunker Example: http://plnkr.co/edit/k5zEfS?p=preview
 
 ## Install
 
