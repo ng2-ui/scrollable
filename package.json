@@ -1,6 +1,6 @@
 {
   "name": "ng2-scrollable",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "Angular2 Scrollable Section Detection With Animation",
   "license": "MIT",
   "main": "dist/index.js",
