@@ -2,7 +2,6 @@
   var map = {
     app: ".",
     '@angular': '../node_modules/@angular',
-    'ng2-utils': '../node_modules/ng2-utils/dist',
     'rxjs': '../node_modules/rxjs'
   };
   var packages = {
@@ -14,14 +13,13 @@
     '@angular/http': { main: 'bundles/http.umd.js', defaultExtension: 'js' },
     '@angular/platform-browser': { main: 'bundles/platform-browser.umd.js', defaultExtension: 'js' },
     '@angular/platform-browser-dynamic': { main: 'bundles/platform-browser-dynamic.umd.js', defaultExtension: 'js' },
-    rxjs: { defaultExtension: 'js' },
-    'ng2-utils': { main: 'index.js', defaultExtension: 'js'}
+    rxjs: { defaultExtension: 'js' }
   };
 
   map['ng2-scrollable'] = '../dist';
-  packages['ng2-scrollable'] = {main: 'index.js', defaultExtension: 'js'};
-  map['ng2-scrollable'] = '../src';
-  packages['ng2-scrollable'] = {main: 'index.ts', defaultExtension: 'ts'};
+  packages['ng2-scrollable'] = {main: 'ng2-scrollable.umd.js', defaultExtension: 'js'};
+  // map['ng2-scrollable'] = '../src';
+  // packages['ng2-scrollable'] = {main: 'index.ts', defaultExtension: 'ts'};
 
   System.config({
     transpiler: 'typescript', //use typescript for compilation
