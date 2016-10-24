@@ -12,23 +12,19 @@ Plunker Example: http://plnkr.co/edit/k5zEfS?p=preview
 
 1. install ng2-scrollable
 
-        $ npm install ng2-scrollable
+        $ npm install ng2-scrollable --save-dev
 
 2. add `map` and `packages` to your `systemjs.config.js`
 
+        map['ng2-scrollable'] = 'node_modules/ng2-scrollable/dist';
+        packages['ng2-scrollable'] = { main: 'ng2-scrollable.umd.js', defaultExtension: 'js' }
 
-        map['ng2-xxxxxxx'] = 'node_modules/ng2-xxxxxxx/dist';
-        packages['ng2-xxxxxxxx'] = { main: 'index.js', defaultExtension: 'js' }
+3. import Ng2ScrollableModule to your AppModule
 
-3. import Ng2XXXXXXXX to your AppModule
-        import { NgModule } from '@angular/core';
-        import { FormsModule } from "@angular/forms";
-        import { BrowserModule  } from '@angular/platform-browser';
-        import { AppComponent } from './app.component';
-        import { Ng2XXXXXXXX } from 'ng2-XXXXXXXXXX';
+        import { Ng2ScrollableModule } from 'ng2-scrollable';
         
         @NgModule({
-          imports: [BrowserModule, FormsModule, Ng2XXXXXXX],
+          imports: [BrowserModule, FormsModule, Ng2ScrollableModule],
           declarations: [AppComponent],
           bootstrap: [ AppComponent ]
         })
