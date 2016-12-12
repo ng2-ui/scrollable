@@ -5,8 +5,7 @@ import {Ng2ScrollableDirective} from 'ng2-scrollable';
 @Component({
   selector: 'my-app',
   providers: [],
-  templateUrl: './app.tpl.html',
-  styleUrls: ['./styles.css']
+  templateUrl: './app.tpl.html'
 })
 export class AppComponent {
   id: string = 's1';
