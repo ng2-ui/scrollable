@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("@angular/core"), require("@angular/forms"), require("@angular/platform-browser"));
+		module.exports = factory(require("@angular/core"), require("@angular/forms"), require("@angular/common"));
 	else if(typeof define === 'function' && define.amd)
-		define(["@angular/core", "@angular/forms", "@angular/platform-browser"], factory);
+		define(["@angular/core", "@angular/forms", "@angular/common"], factory);
 	else if(typeof exports === 'object')
-		exports["ng2-scrollable"] = factory(require("@angular/core"), require("@angular/forms"), require("@angular/platform-browser"));
+		exports["ng2-scrollable"] = factory(require("@angular/core"), require("@angular/forms"), require("@angular/common"));
 	else
-		root["ng2-scrollable"] = factory(root["@angular/core"], root["@angular/forms"], root["@angular/platform-browser"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_3__) {
+		root["ng2-scrollable"] = factory(root["@angular/core"], root["@angular/forms"], root["@angular/common"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_5__, __WEBPACK_EXTERNAL_MODULE_6__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -55,56 +55,14 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(1);
-	var forms_1 = __webpack_require__(2);
-	var platform_browser_1 = __webpack_require__(3);
-	var ng2_scrollable_directive_1 = __webpack_require__(4);
+	var ng2_scrollable_directive_1 = __webpack_require__(1);
 	exports.Ng2ScrollableDirective = ng2_scrollable_directive_1.Ng2ScrollableDirective;
-	var Ng2ScrollableModule = (function () {
-	    function Ng2ScrollableModule() {
-	    }
-	    Ng2ScrollableModule = __decorate([
-	        core_1.NgModule({
-	            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
-	            declarations: [ng2_scrollable_directive_1.Ng2ScrollableDirective],
-	            exports: [ng2_scrollable_directive_1.Ng2ScrollableDirective]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], Ng2ScrollableModule);
-	    return Ng2ScrollableModule;
-	}());
-	exports.Ng2ScrollableModule = Ng2ScrollableModule;
+	var ng2_scrollable_module_1 = __webpack_require__(4);
+	exports.Ng2ScrollableModule = ng2_scrollable_module_1.Ng2ScrollableModule;
 
 
 /***/ },
 /* 1 */
-/***/ function(module, exports) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
-
-/***/ },
-/* 2 */
-/***/ function(module, exports) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
-
-/***/ },
-/* 3 */
-/***/ function(module, exports) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_3__;
-
-/***/ },
-/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -117,8 +75,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(1);
-	var ng2_utils_1 = __webpack_require__(5);
+	var core_1 = __webpack_require__(2);
+	var ng2_utils_1 = __webpack_require__(3);
 	var Ng2ScrollableDirective = (function () {
 	    function Ng2ScrollableDirective(el) {
 	        this.elementVisible = new core_1.EventEmitter();
@@ -203,32 +161,38 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }, 50);
 	        }(10, scrollProp));
 	    };
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Boolean)
-	    ], Ng2ScrollableDirective.prototype, "horizontal", void 0);
-	    __decorate([
-	        core_1.Output(), 
-	        __metadata('design:type', Object)
-	    ], Ng2ScrollableDirective.prototype, "elementVisible", void 0);
-	    Ng2ScrollableDirective = __decorate([
-	        core_1.Directive({
-	            selector: '[ng2-scrollable]'
-	        }), 
-	        __metadata('design:paramtypes', [core_1.ElementRef])
-	    ], Ng2ScrollableDirective);
 	    return Ng2ScrollableDirective;
 	}());
+	__decorate([
+	    core_1.Input(),
+	    __metadata("design:type", Boolean)
+	], Ng2ScrollableDirective.prototype, "horizontal", void 0);
+	__decorate([
+	    core_1.Output(),
+	    __metadata("design:type", Object)
+	], Ng2ScrollableDirective.prototype, "elementVisible", void 0);
+	Ng2ScrollableDirective = __decorate([
+	    core_1.Directive({
+	        selector: '[ng2-scrollable]'
+	    }),
+	    __metadata("design:paramtypes", [core_1.ElementRef])
+	], Ng2ScrollableDirective);
 	exports.Ng2ScrollableDirective = Ng2ScrollableDirective;
 
 
 /***/ },
-/* 5 */
+/* 2 */
+/***/ function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
+
+/***/ },
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function webpackUniversalModuleDefinition(root, factory) {
 		if(true)
-			module.exports = factory(__webpack_require__(1));
+			module.exports = factory(__webpack_require__(2));
 		else if(typeof define === 'function' && define.amd)
 			define(["@angular/core"], factory);
 		else if(typeof exports === 'object')
@@ -507,6 +471,53 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	;
 	//# sourceMappingURL=ng2-utils.umd.js.map
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(2);
+	var forms_1 = __webpack_require__(5);
+	var common_1 = __webpack_require__(6);
+	var ng2_scrollable_directive_1 = __webpack_require__(1);
+	exports.Ng2ScrollableDirective = ng2_scrollable_directive_1.Ng2ScrollableDirective;
+	var Ng2ScrollableModule = (function () {
+	    function Ng2ScrollableModule() {
+	    }
+	    return Ng2ScrollableModule;
+	}());
+	Ng2ScrollableModule = __decorate([
+	    core_1.NgModule({
+	        imports: [common_1.CommonModule, forms_1.FormsModule],
+	        declarations: [ng2_scrollable_directive_1.Ng2ScrollableDirective],
+	        exports: [ng2_scrollable_directive_1.Ng2ScrollableDirective]
+	    }),
+	    __metadata("design:paramtypes", [])
+	], Ng2ScrollableModule);
+	exports.Ng2ScrollableModule = Ng2ScrollableModule;
+
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_5__;
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_6__;
 
 /***/ }
 /******/ ])

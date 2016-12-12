@@ -1,5 +1,6 @@
 //our root app component
 import {Component, ViewChild, ViewContainerRef} from '@angular/core';
+//noinspection TypeScriptCheckImport
 import {Ng2ScrollableDirective} from 'ng2-scrollable';
 
 @Component({

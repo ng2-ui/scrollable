@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var ng2_utils_1 = require('ng2-utils');
+var core_1 = require("@angular/core");
+var ng2_utils_1 = require("ng2-utils");
 var Ng2ScrollableDirective = (function () {
     function Ng2ScrollableDirective(el) {
         this.elementVisible = new core_1.EventEmitter();
@@ -94,21 +94,21 @@ var Ng2ScrollableDirective = (function () {
             }, 50);
         }(10, scrollProp));
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Boolean)
-    ], Ng2ScrollableDirective.prototype, "horizontal", void 0);
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], Ng2ScrollableDirective.prototype, "elementVisible", void 0);
-    Ng2ScrollableDirective = __decorate([
-        core_1.Directive({
-            selector: '[ng2-scrollable]'
-        }), 
-        __metadata('design:paramtypes', [core_1.ElementRef])
-    ], Ng2ScrollableDirective);
     return Ng2ScrollableDirective;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], Ng2ScrollableDirective.prototype, "horizontal", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], Ng2ScrollableDirective.prototype, "elementVisible", void 0);
+Ng2ScrollableDirective = __decorate([
+    core_1.Directive({
+        selector: '[ng2-scrollable]'
+    }),
+    __metadata("design:paramtypes", [core_1.ElementRef])
+], Ng2ScrollableDirective);
 exports.Ng2ScrollableDirective = Ng2ScrollableDirective;
 //# sourceMappingURL=ng2-scrollable.directive.js.map
