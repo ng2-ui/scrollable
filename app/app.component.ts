@@ -17,7 +17,7 @@ export class AppComponent {
       selector,       // scroll to this
       parentSelector, // scroll within (null if window scrolling)
       horizontal,     // is it horizontal scrolling
-      10              // distance from top or left
+      0               // distance from top or left
     );
   }
 }
