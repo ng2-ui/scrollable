@@ -6,7 +6,7 @@ Angular2 Automatic Scroll Detection With Animation
   <img src="http://i.imgur.com/9PWnNqe.png" width="50% border="1" />
 </a>
 
-Plunker Example: http://plnkr.co/edit/k5zEfS?p=preview
+Plunker Example: https://plnkr.co/edit/wLVudY?p=preview&open=app.component.ts
 
 ## Install
 
