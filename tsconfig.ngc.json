@@ -2,16 +2,10 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["es5", "es6", "dom"],
-<<<<<<< HEAD
     "module": "commonjs",
     "moduleResolution": "node",
     "declaration": true,
-=======
-    "declaration": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
     "noEmitHelpers": false,
->>>>>>> issue #4, version 0.7.0, upgraded webpack
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
@@ -21,7 +15,6 @@
     "noImplicitAny": false,
     "noImplicitReturns": false,
     "noImplicitUseStrict": false,
-<<<<<<< HEAD
     "allowSyntheticDefaultImports": true,
     "suppressExcessPropertyErrors": true,
     "suppressImplicitAnyIndexErrors": true,
@@ -34,14 +27,6 @@
     "paths": {
       "ng2-scrollable": ["./index"]
     }
-=======
-    "noFallthroughCasesInSwitch": false,
-    "allowSyntheticDefaultImports": true,
-    "suppressExcessPropertyErrors": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "outDir": "dist",
-    "baseUrl": "src"
->>>>>>> issue #4, version 0.7.0, upgraded webpack
   },
   "files": [
     "src/index.ts"
@@ -50,14 +35,9 @@
     "node_modules"
   ],
   "compileOnSave": false,
-<<<<<<< HEAD
   "buildOnSave": false,
   "angularCompilerOptions": {
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true
   }
 }
-=======
-  "buildOnSave": false
-}
->>>>>>> issue #4, version 0.7.0, upgraded webpack
