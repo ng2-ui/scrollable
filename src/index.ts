@@ -1,6 +1,6 @@
 
-import {Ng2ScrollableDirective} from "./ng2-scrollable.directive";
-import {Ng2ScrollableModule} from "./ng2-scrollable.module";
+import {NguiScrollableDirective} from "./scrollable.directive";
+import {NguiScrollableModule} from "./scrollable.module";
 
-export { Ng2ScrollableDirective, Ng2ScrollableModule };
+export { NguiScrollableDirective, NguiScrollableModule };
 

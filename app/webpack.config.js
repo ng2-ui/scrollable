@@ -5,7 +5,7 @@ const config = {
   resolve: {
     extensions: ['.ts', '.webpack.js', '.web.js', '.js'],
     alias: {
-      'ng2-scrollable': path.join(__dirname, '..', 'src', 'index')
+      '@ngui/scrollable': '../src/index.ts'
     }
   },
   devtool: 'source-map',

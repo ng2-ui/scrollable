@@ -1,7 +1,7 @@
 //our root app component
 import {Component, ViewChild, ViewContainerRef} from '@angular/core';
 //noinspection TypeScriptCheckImport
-import {Ng2ScrollableDirective} from 'ng2-scrollable';
+import {NguiScrollableDirective} from '@ngui/scrollable';
 
 @Component({
   selector: 'my-app',
@@ -13,7 +13,7 @@ export class AppComponent {
   hid: string = 'h1';
   wid: string = 'w1';
   scrollTo(selector, parentSelector, horizontal) {
-    Ng2ScrollableDirective.scrollTo(
+    NguiScrollableDirective.scrollTo(
       selector,       // scroll to this
       parentSelector, // scroll within (null if window scrolling)
       horizontal,     // is it horizontal scrolling

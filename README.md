@@ -1,8 +1,8 @@
-# ng2-scrollable
+# scrollable
 Angular2 Automatic Scroll Detection With Animation
 
 
-<a href="https://rawgit.com/ng2-ui/ng2-scrollable/master/app/index.html">
+<a href="https://rawgit.com/ng2-ui/scrollable/master/app/index.html">
   <img src="http://i.imgur.com/9PWnNqe.png" width="50% border="1" />
 </a>
 
@@ -10,21 +10,20 @@ Plunker Example: https://plnkr.co/edit/wLVudY?p=preview&open=app.component.ts
 
 ## Install
 
-1. install ng2-scrollable
+1. install @ngui/scrollable
 
-        $ npm install ng2-scrollable --save-dev
+        $ npm install @ngui/scrollable --save-dev
 
 2. add `map` and `packages` to your `systemjs.config.js`
 
-        map['ng2-scrollable'] = 'node_modules/ng2-scrollable/dist';
-        packages['ng2-scrollable'] = { main: 'ng2-scrollable.umd.js', defaultExtension: 'js' }
+        map['@ngui/scrollable'] = 'node_modules/@ngui/scrollable/dist/scrollable.umd.js';
 
-3. import Ng2ScrollableModule to your AppModule
+3. import NguiScrollableModule to your AppModule
 
-        import { Ng2ScrollableModule } from 'ng2-scrollable';
+        import { NguiScrollableModule } from '@ngui/scrollable';
         
         @NgModule({
-          imports: [BrowserModule, FormsModule, Ng2ScrollableModule],
+          imports: [BrowserModule, FormsModule, NguiScrollableModule],
           declarations: [AppComponent],
           bootstrap: [ AppComponent ]
         })
@@ -44,7 +43,7 @@ Plunker Example: https://plnkr.co/edit/wLVudY?p=preview&open=app.component.ts
           <li [class.current]="id=='s8'" (click)="scrollable.el.scrollTo('s8')">Eight
           <li [class.current]="id=='s9'" (click)="scrollable.el.scrollTo('s9')">Nine
         </ul>
-        <div class="scrollable" (scrolledTo)="id=$event" ng2-scrollable>
+        <div class="scrollable" (scrolledTo)="id=$event" ngui-scrollable>
           <div id="s1">One</div>
           <div id="s2">Two</div>
           <div id="s3">Three</div>

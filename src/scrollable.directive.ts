@@ -1,10 +1,10 @@
 import { Directive, ElementRef, Input, Output, EventEmitter } from '@angular/core';
-import { elementVisible } from 'ng2-utils';
+import { elementVisible } from '@ngui/utils';
 
 @Directive({
-  selector: '[ng2-scrollable]'
+  selector: '[ngui-scrollable]'
 })
-export class Ng2ScrollableDirective {
+export class NguiScrollableDirective {
 
   @Input() horizontal: boolean;
   @Output() elementVisible = new EventEmitter();

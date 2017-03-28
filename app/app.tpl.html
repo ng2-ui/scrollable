@@ -8,7 +8,7 @@
 
   scrolled to: {{id}}
   <div id="v-scrollable" class="scrollable section"
-       ng2-scrollable (elementVisible)="id = $event.id">
+       ngui-scrollable (elementVisible)="id = $event.id">
     <div id="s1">Section 1  (scroll to here)</div>
     <div id="s2">Section 2  (scroll to here)</div>
     <div id="s3">Section 3  (scroll to here)</div>
@@ -34,7 +34,7 @@
 
   scrolled to: {{hid}}
   <div id="h-scrollable" class="scrollable section horizontal"
-       ng2-scrollable
+       ngui-scrollable
        [horizontal]="true"
        (elementVisible)="hid = $event.id">
     <div id="h1">Section 1</div>
@@ -55,7 +55,7 @@
 <div class="scrollable window"
      (elementVisible)="wid = $event.id"
      (elementHidden)="whid = $event.id"
-     ng2-scrollable>
+     ngui-scrollable>
   <div id="w1">One</div>
   <div id="w2">Two</div>
   <div id="w3">Three</div>

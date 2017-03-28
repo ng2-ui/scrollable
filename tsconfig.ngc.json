@@ -25,7 +25,7 @@
     "outDir": "dist",
     "baseUrl": "src",
     "paths": {
-      "ng2-scrollable": ["./index"]
+      "@ngui/scrollable": ["./index"]
     }
   },
   "files": [

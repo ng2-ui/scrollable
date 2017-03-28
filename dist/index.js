@@ -1,6 +1,6 @@
 "use strict";
-var ng2_scrollable_directive_1 = require("./ng2-scrollable.directive");
-exports.Ng2ScrollableDirective = ng2_scrollable_directive_1.Ng2ScrollableDirective;
-var ng2_scrollable_module_1 = require("./ng2-scrollable.module");
-exports.Ng2ScrollableModule = ng2_scrollable_module_1.Ng2ScrollableModule;
+var scrollable_directive_1 = require("./scrollable.directive");
+exports.NguiScrollableDirective = scrollable_directive_1.NguiScrollableDirective;
+var scrollable_module_1 = require("./scrollable.module");
+exports.NguiScrollableModule = scrollable_module_1.NguiScrollableModule;
 //# sourceMappingURL=index.js.map

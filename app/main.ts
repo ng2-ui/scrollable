@@ -13,10 +13,10 @@ import { FormsModule }    from "@angular/forms";
 
 import { AppComponent }   from './app.component';
 //noinspection TypeScriptCheckImport
-import { Ng2ScrollableModule }  from 'ng2-scrollable';
+import { NguiScrollableModule }  from '@ngui/scrollable';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, Ng2ScrollableModule],
+  imports: [BrowserModule, FormsModule, NguiScrollableModule],
   declarations: [AppComponent],
   bootstrap: [ AppComponent ]
 })
