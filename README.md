@@ -1,6 +1,13 @@
 # scrollable
 Angular2 Automatic Scroll Detection With Animation
 
+## IMPORTANT NOTICE
+
+After 0.9.0 or higher, `ng2-scrollable` has been changed to `@ngui/scrollable`. Here are the changes;
+
+* Module `ng2-scrollable` is changed to `@ngui/scrollable`.
+* Direvtive `ng2-scrollable` is changed to `ngui-scrollable`.
+* Class name `Ng2ScrollaleModule` is changed to `NguiScrollableModule`.
 
 <a href="https://rawgit.com/ng2-ui/scrollable/master/app/index.html">
   <img src="http://i.imgur.com/9PWnNqe.png" width="50% border="1" />
