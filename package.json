@@ -1,6 +1,6 @@
 {
   "name": "@ngui/scrollable",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Angular2 Scrollable Section Detection With Animation",
   "license": "MIT",
   "main": "dist/scrollable.umd.js",
@@ -23,36 +23,36 @@
     "ng2-utils": "^0.5.0"
   },
   "devDependencies": {
-    "@angular/common": "^2.3.0",
-    "@angular/compiler": "^2.3.0",
-    "@angular/compiler-cli": "^2.3.0",
-    "@angular/core": "^2.3.0",
-    "@angular/forms": "^2.3.0",
-    "@angular/http": "^2.3.0",
-    "@angular/platform-browser": "^2.3.0",
-    "@angular/platform-browser-dynamic": "^2.3.0",
-    "@angular/router": "^3.3.0",
-    "@types/googlemaps": "^3.20.32",
-    "@types/hammerjs": "^2.0.32",
-    "@types/node": "^6.0.31",
-    "angular2-template-loader": "^0.6.0",
-    "codelyzer": "^2.0.0-beta.3",
+    "@angular/common": "^4.0.3",
+    "@angular/compiler": "^4.0.3",
+    "@angular/compiler-cli": "^4.0.3",
+    "@angular/core": "^4.0.3",
+    "@angular/forms": "^4.0.3",
+    "@angular/http": "^4.0.3",
+    "@angular/platform-browser": "^4.0.3",
+    "@angular/platform-browser-dynamic": "^4.0.3",
+    "@angular/router": "^4.0.3",
+    "@types/googlemaps": "^3.26.10",
+    "@types/hammerjs": "^2.0.34",
+    "@types/node": "^7.0.13",
+    "angular2-template-loader": "^0.6.2",
+    "codelyzer": "^3.0.0",
     "core-js": "^2.4.1",
     "forever": "^0.15.3",
-    "fs-extra": "^2.0.0",
-    "npm-check-updates": "^2.8.8",
-    "npm-run-all": "^3.1.2",
+    "fs-extra": "^2.1.2",
+    "npm-check-updates": "^2.11.0",
+    "npm-run-all": "^4.0.2",
     "raw-loader": "^0.5.1",
-    "rimraf": "^2.5.4",
-    "rxjs": "^5.0.0-rc.5",
+    "rimraf": "^2.6.1",
+    "rxjs": "^5.3.0",
     "strip-loader": "^0.1.2",
-    "ts-loader": "^2.0.0",
-    "tslint": "^4.0.2",
-    "typescript": "^2.1.4",
-    "webpack": "^2.2.0",
-    "webpack-dev-server": "^2.2.0",
+    "ts-loader": "^2.0.3",
+    "tslint": "^5.1.0",
+    "typescript": "^2.2.2",
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.4",
     "webtest": "^0.3.8",
-    "zone.js": "^0.7.2"
+    "zone.js": "^0.8.9"
   },
   "repository": {
     "type": "git",
@@ -69,6 +69,6 @@
     "directive"
   ],
   "dependencies": {
-    "@ngui/utils": "^0.7.0"
+    "@ngui/utils": "^0.8.1"
   }
 }

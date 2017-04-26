@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var scrollable_directive_1 = require("./scrollable.directive");
 exports.NguiScrollableDirective = scrollable_directive_1.NguiScrollableDirective;
 var scrollable_module_1 = require("./scrollable.module");
