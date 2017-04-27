@@ -1,10 +1,14 @@
-import { Directive, ElementRef, Input, Output, EventEmitter } from '@angular/core';
+import { Directive, ElementRef, Input, Output, EventEmitter,Renderer,HostListener } from '@angular/core';
 import { elementVisible } from '@ngui/utils';
+import { isPlatformBrowser } from '@angular/common';
+import { PLATFORM_ID,Inject } from '@angular/core';
+
 
 @Directive({
   selector: '[ngui-scrollable]'
 })
 export class NguiScrollableDirective {
+
 
   @Input() horizontal: boolean;
   @Output() elementVisible = new EventEmitter();
@@ -12,26 +16,55 @@ export class NguiScrollableDirective {
   sections: Element[] = [];
   el: HTMLElement;
   visible: any = elementVisible;
+      private isBrowser: boolean = isPlatformBrowser(this.platform_id);
 
-  constructor(el: ElementRef) {
+
+  constructor(el: ElementRef ,private renderer: Renderer,
+              @Inject(PLATFORM_ID) private platform_id
+              ) {
     this.el = el.nativeElement;
-    this.el.style.position = 'relative';
+   
+    renderer.setElementStyle(el.nativeElement,'position','relative');
   }
 
   // setup list of sections
-  ngOnInit(): void {
+  // ngOnInit(): void {
+  //   for (var i = 0; i< this.el.children.length; i++) {
+  //     let childEl = this.el.children[i];
+  //     childEl.id && this.sections.push(childEl);
+  //   }
+
+   
+  // }
+
+  // setup list of sections 
+  ngAfterViewInit(): void{
     for (var i = 0; i< this.el.children.length; i++) {
       let childEl = this.el.children[i];
       childEl.id && this.sections.push(childEl);
     }
 
-    let thisElStyle = window.getComputedStyle(this.el);
-    let elToListenScroll = thisElStyle.overflow === 'auto' ? this.el : window;
-    this.listenScrollOn(elToListenScroll);
+      let elToListenScroll
+      if(this.isBrowser){
+              let thisElStyle = window.getComputedStyle(this.el)
+              elToListenScroll = thisElStyle.overflow === 'auto' ? this.el : window;
+
+
+      }else{
+               elToListenScroll = this.el
+      }
+
+      this.listenScrollOn(elToListenScroll);  
+
+      
+      
+    
+
   }
 
   private listenScrollOn(el: HTMLElement | Window): void {
-    (<HTMLElement>el).addEventListener('scroll', () => {
+
+        this.renderer.listen(<HTMLElement>el, 'scroll', (event) => {
       let elScrolledToVisible: HTMLElement = null;
       for (let i = 0; i< this.sections.length; i++) {
         let section = <HTMLElement>this.sections[i];
@@ -101,3 +134,4 @@ export class NguiScrollableDirective {
   }
 
 }
+  
