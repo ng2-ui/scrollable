@@ -16,7 +16,7 @@ export class NguiScrollableDirective {
   sections: Element[] = [];
   el: HTMLElement;
   visible: any = elementVisible;
-      private isBrowser: boolean = isPlatformBrowser(this.platform_id);
+  private isBrowser: boolean = isPlatformBrowser(this.platform_id);
 
 
   constructor(el: ElementRef ,private renderer: Renderer,
@@ -44,17 +44,18 @@ export class NguiScrollableDirective {
       childEl.id && this.sections.push(childEl);
     }
 
-      let elToListenScroll
-      if(this.isBrowser){
-              let thisElStyle = window.getComputedStyle(this.el)
-              elToListenScroll = thisElStyle.overflow === 'auto' ? this.el : window;
+    let elToListenScroll
+    if(this.isBrowser){
 
+      let thisElStyle = window.getComputedStyle(this.el)
+      elToListenScroll = thisElStyle.overflow === 'auto' ? this.el : window;
+    
+    }else{
 
-      }else{
-               elToListenScroll = this.el
-      }
+      elToListenScroll = this.el
+    }
 
-      this.listenScrollOn(elToListenScroll);  
+    this.listenScrollOn(elToListenScroll);  
 
       
       
@@ -64,7 +65,7 @@ export class NguiScrollableDirective {
 
   private listenScrollOn(el: HTMLElement | Window): void {
 
-        this.renderer.listen(<HTMLElement>el, 'scroll', (event) => {
+    this.renderer.listen(<HTMLElement>el, 'scroll', (event) => {
       let elScrolledToVisible: HTMLElement = null;
       for (let i = 0; i< this.sections.length; i++) {
         let section = <HTMLElement>this.sections[i];
