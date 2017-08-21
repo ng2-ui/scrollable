@@ -99,7 +99,7 @@ export class NguiScrollableDirective {
     // detect the current environment
     let parentElStyle = window.getComputedStyle(parentEl);
     let scrollContainerEl = parentElStyle.overflow === 'auto' ?
-      parentEl : document.body;
+      parentEl : document.scrollingElement || document.documentElement;
     let currentScrollTop = scrollContainerEl.scrollTop;
     let currentScrollLeft = scrollContainerEl.scrollLeft;
 
