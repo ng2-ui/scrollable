@@ -8,16 +8,16 @@ exports.NguiScrollableDirective = scrollable_directive_1.NguiScrollableDirective
 var NguiScrollableModule = (function () {
     function NguiScrollableModule() {
     }
+    NguiScrollableModule.decorators = [
+        { type: core_1.NgModule, args: [{
+                    imports: [common_1.CommonModule, forms_1.FormsModule],
+                    declarations: [scrollable_directive_1.NguiScrollableDirective],
+                    exports: [scrollable_directive_1.NguiScrollableDirective]
+                },] },
+    ];
+    /** @nocollapse */
+    NguiScrollableModule.ctorParameters = function () { return []; };
     return NguiScrollableModule;
 }());
-NguiScrollableModule.decorators = [
-    { type: core_1.NgModule, args: [{
-                imports: [common_1.CommonModule, forms_1.FormsModule],
-                declarations: [scrollable_directive_1.NguiScrollableDirective],
-                exports: [scrollable_directive_1.NguiScrollableDirective]
-            },] },
-];
-/** @nocollapse */
-NguiScrollableModule.ctorParameters = function () { return []; };
 exports.NguiScrollableModule = NguiScrollableModule;
 //# sourceMappingURL=scrollable.module.js.map

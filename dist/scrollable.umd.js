@@ -7,7 +7,7 @@
 		exports["scrollable"] = factory(require("@angular/core"), require("@angular/common"), require("@angular/forms"));
 	else
 		root["scrollable"] = factory(root["@angular/core"], root["@angular/common"], root["@angular/forms"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_0__, __WEBPACK_EXTERNAL_MODULE_20__, __WEBPACK_EXTERNAL_MODULE_21__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_0__, __WEBPACK_EXTERNAL_MODULE_8__, __WEBPACK_EXTERNAL_MODULE_21__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 19);
+/******/ 	return __webpack_require__(__webpack_require__.s = 20);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -3200,30 +3200,51 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
-var utils_1 = __webpack_require__(15);
+var utils_1 = __webpack_require__(16);
+var common_1 = __webpack_require__(8);
+var core_2 = __webpack_require__(0);
 var NguiScrollableDirective = (function () {
-    function NguiScrollableDirective(el) {
+    function NguiScrollableDirective(el, renderer, platform_id) {
+        this.renderer = renderer;
+        this.platform_id = platform_id;
         this.elementVisible = new core_1.EventEmitter();
         this.sections = [];
         this.visible = utils_1.elementVisible;
+        this.isBrowser = common_1.isPlatformBrowser(this.platform_id);
         this.el = el.nativeElement;
-        this.el.style.position = 'relative';
+        renderer.setElementStyle(el.nativeElement, 'position', 'relative');
     }
     // setup list of sections
-    NguiScrollableDirective.prototype.ngOnInit = function () {
+    // ngOnInit(): void {
+    //   for (var i = 0; i< this.el.children.length; i++) {
+    //     let childEl = this.el.children[i];
+    //     childEl.id && this.sections.push(childEl);
+    //   }
+    // }
+    // setup list of sections 
+    NguiScrollableDirective.prototype.ngAfterViewInit = function () {
         for (var i = 0; i < this.el.children.length; i++) {
             var childEl = this.el.children[i];
             childEl.id && this.sections.push(childEl);
         }
-        var thisElStyle = window.getComputedStyle(this.el);
-        var elToListenScroll = thisElStyle.overflow === 'auto' ? this.el : window;
+        var elToListenScroll;
+        if (this.isBrowser) {
+            var thisElStyle = window.getComputedStyle(this.el);
+            elToListenScroll = thisElStyle.overflow === 'auto' ? this.el : window;
+        }
+        else {
+            elToListenScroll = this.el;
+        }
         this.listenScrollOn(elToListenScroll);
     };
     NguiScrollableDirective.prototype.listenScrollOn = function (el) {
         var _this = this;
-        el.addEventListener('scroll', function () {
+        this.renderer.listen(el, 'scroll', function (event) {
             var elScrolledToVisible = null;
             for (var i = 0; i < _this.sections.length; i++) {
                 var section = _this.sections[i];
@@ -3255,7 +3276,7 @@ var NguiScrollableDirective = (function () {
         // detect the current environment
         var parentElStyle = window.getComputedStyle(parentEl);
         var scrollContainerEl = parentElStyle.overflow === 'auto' ?
-            parentEl : document.body;
+            parentEl : document.scrollingElement || document.documentElement;
         var currentScrollTop = scrollContainerEl.scrollTop;
         var currentScrollLeft = scrollContainerEl.scrollLeft;
         // determine targetOffsetTop(or Left);
@@ -3287,22 +3308,23 @@ var NguiScrollableDirective = (function () {
             }, 50);
         }(10, scrollProp));
     };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], NguiScrollableDirective.prototype, "horizontal", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], NguiScrollableDirective.prototype, "elementVisible", void 0);
+    NguiScrollableDirective = __decorate([
+        core_1.Directive({
+            selector: '[ngui-scrollable]'
+        }),
+        __param(2, core_2.Inject(core_2.PLATFORM_ID)),
+        __metadata("design:paramtypes", [core_1.ElementRef, core_1.Renderer, Object])
+    ], NguiScrollableDirective);
     return NguiScrollableDirective;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], NguiScrollableDirective.prototype, "horizontal", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], NguiScrollableDirective.prototype, "elementVisible", void 0);
-NguiScrollableDirective = __decorate([
-    core_1.Directive({
-        selector: '[ngui-scrollable]'
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], NguiScrollableDirective);
 exports.NguiScrollableDirective = NguiScrollableDirective;
 
 
@@ -3380,7 +3402,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = __webpack_require__(0);
-var js_beautify = __webpack_require__(17);
+var js_beautify = __webpack_require__(18);
 var JavascriptCodePipe = (function () {
     function JavascriptCodePipe() {
     }
@@ -3470,6 +3492,12 @@ exports.Storage = Storage;
 
 /***/ }),
 /* 8 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_8__;
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3483,26 +3511,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
 var forms_1 = __webpack_require__(21);
-var common_1 = __webpack_require__(20);
+var common_1 = __webpack_require__(8);
 var scrollable_directive_1 = __webpack_require__(4);
 exports.NguiScrollableDirective = scrollable_directive_1.NguiScrollableDirective;
 var NguiScrollableModule = (function () {
     function NguiScrollableModule() {
     }
+    NguiScrollableModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, forms_1.FormsModule],
+            declarations: [scrollable_directive_1.NguiScrollableDirective],
+            exports: [scrollable_directive_1.NguiScrollableDirective]
+        })
+    ], NguiScrollableModule);
     return NguiScrollableModule;
 }());
-NguiScrollableModule = __decorate([
-    core_1.NgModule({
-        imports: [common_1.CommonModule, forms_1.FormsModule],
-        declarations: [scrollable_directive_1.NguiScrollableDirective],
-        exports: [scrollable_directive_1.NguiScrollableDirective]
-    })
-], NguiScrollableModule);
 exports.NguiScrollableModule = NguiScrollableModule;
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3535,7 +3563,7 @@ exports.NguiUtilsDirective = NguiUtilsDirective;
 //# sourceMappingURL=utils.directive.js.map
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3582,7 +3610,7 @@ exports.computedStyle = computedStyle;
 //# sourceMappingURL=computed-style.js.map
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3642,7 +3670,7 @@ exports.elementVisible = elementVisible;
 //# sourceMappingURL=element-visible.js.map
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3659,7 +3687,7 @@ exports.outerHeight = outerHeight;
 //# sourceMappingURL=outer-height.js.map
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3676,7 +3704,7 @@ exports.outerWidth = outerWidth;
 //# sourceMappingURL=outer-width.js.map
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3736,21 +3764,21 @@ exports.scrollTo = scrollTo;
 //# sourceMappingURL=scroll-to.js.map
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 /* dom functions */
-var scroll_to_1 = __webpack_require__(14);
+var scroll_to_1 = __webpack_require__(15);
 exports.scrollTo = scroll_to_1.scrollTo;
-var element_visible_1 = __webpack_require__(11);
+var element_visible_1 = __webpack_require__(12);
 exports.elementVisible = element_visible_1.elementVisible;
-var computed_style_1 = __webpack_require__(10);
+var computed_style_1 = __webpack_require__(11);
 exports.computedStyle = computed_style_1.computedStyle;
-var outer_width_1 = __webpack_require__(13);
+var outer_width_1 = __webpack_require__(14);
 exports.outerWidth = outer_width_1.outerWidth;
-var outer_height_1 = __webpack_require__(12);
+var outer_height_1 = __webpack_require__(13);
 exports.outerHeight = outer_height_1.outerHeight;
 /*  pipes */
 var html_code_pipe_1 = __webpack_require__(5);
@@ -3763,13 +3791,13 @@ exports.MemoryStorage = memory_storage_1.MemoryStorage;
 var storage_1 = __webpack_require__(7);
 exports.Storage = storage_1.Storage;
 /* module */
-var utils_module_1 = __webpack_require__(16);
+var utils_module_1 = __webpack_require__(17);
 exports.NguiUtilsModule = utils_module_1.NguiUtilsModule;
 //# sourceMappingURL=index.js.map
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3786,7 +3814,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = __webpack_require__(0);
 var html_code_pipe_1 = __webpack_require__(5);
 var javascript_code_pipe_1 = __webpack_require__(6);
-var utils_directive_1 = __webpack_require__(9);
+var utils_directive_1 = __webpack_require__(10);
 /* services */
 var memory_storage_1 = __webpack_require__(1);
 var storage_1 = __webpack_require__(7);
@@ -3818,7 +3846,7 @@ exports.NguiUtilsModule = NguiUtilsModule;
 //# sourceMappingURL=utils.module.js.map
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -3888,7 +3916,7 @@ if (true) {
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
         __webpack_require__(3),
         __webpack_require__(2),
-        __webpack_require__(18)
+        __webpack_require__(19)
     ], __WEBPACK_AMD_DEFINE_RESULT__ = function(js_beautify, css_beautify, html_beautify) {
         return get_beautify(js_beautify, css_beautify, html_beautify);
     }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
@@ -3905,7 +3933,7 @@ if (true) {
 }
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*jshint curly:true, eqeqeq:true, laxbreak:true, noempty:false */
@@ -4128,7 +4156,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*jshint curly:t
             this.Utils = { //Uilities made available to the various functions
                 whitespace: "\n\r\t ".split(''),
 
-                single_token: [
+                single_token: options.void_elements || [
                     // HTLM void elements - aka self-closing tags - aka singletons
                     // https://www.w3.org/html/wg/drafts/html/master/syntax.html#void-elements
                     'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'keygen',
@@ -4744,7 +4772,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*jshint curly:t
                 // if next_tag comes back but is not an isolated tag, then
                 // let's treat the 'a' tag as having content
                 // and respect the unformatted option
-                if (!tag || this.Utils.in_array(tag, unformatted)) {
+                if (!tag || this.Utils.in_array(tag[1], unformatted)) {
                     return true;
                 } else {
                     return false;
@@ -5039,7 +5067,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*jshint curly:t
 }());
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5047,15 +5075,9 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*jshint curly:t
 Object.defineProperty(exports, "__esModule", { value: true });
 var scrollable_directive_1 = __webpack_require__(4);
 exports.NguiScrollableDirective = scrollable_directive_1.NguiScrollableDirective;
-var scrollable_module_1 = __webpack_require__(8);
+var scrollable_module_1 = __webpack_require__(9);
 exports.NguiScrollableModule = scrollable_module_1.NguiScrollableModule;
 
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_20__;
 
 /***/ }),
 /* 21 */
