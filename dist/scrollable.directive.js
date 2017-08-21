@@ -2,45 +2,27 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var utils_1 = require("@ngui/utils");
-var common_1 = require("@angular/common");
-var core_2 = require("@angular/core");
 var NguiScrollableDirective = (function () {
-    function NguiScrollableDirective(el, renderer, platform_id) {
-        this.renderer = renderer;
-        this.platform_id = platform_id;
+    function NguiScrollableDirective(el) {
         this.elementVisible = new core_1.EventEmitter();
         this.sections = [];
         this.visible = utils_1.elementVisible;
-        this.isBrowser = common_1.isPlatformBrowser(this.platform_id);
         this.el = el.nativeElement;
-        renderer.setElementStyle(el.nativeElement, 'position', 'relative');
+        this.el.style.position = 'relative';
     }
     // setup list of sections
-    // ngOnInit(): void {
-    //   for (var i = 0; i< this.el.children.length; i++) {
-    //     let childEl = this.el.children[i];
-    //     childEl.id && this.sections.push(childEl);
-    //   }
-    // }
-    // setup list of sections 
-    NguiScrollableDirective.prototype.ngAfterViewInit = function () {
+    NguiScrollableDirective.prototype.ngOnInit = function () {
         for (var i = 0; i < this.el.children.length; i++) {
             var childEl = this.el.children[i];
             childEl.id && this.sections.push(childEl);
         }
-        var elToListenScroll;
-        if (this.isBrowser) {
-            var thisElStyle = window.getComputedStyle(this.el);
-            elToListenScroll = thisElStyle.overflow === 'auto' ? this.el : window;
-        }
-        else {
-            elToListenScroll = this.el;
-        }
+        var thisElStyle = window.getComputedStyle(this.el);
+        var elToListenScroll = thisElStyle.overflow === 'auto' ? this.el : window;
         this.listenScrollOn(elToListenScroll);
     };
     NguiScrollableDirective.prototype.listenScrollOn = function (el) {
         var _this = this;
-        this.renderer.listen(el, 'scroll', function (event) {
+        el.addEventListener('scroll', function () {
             var elScrolledToVisible = null;
             for (var i = 0; i < _this.sections.length; i++) {
                 var section = _this.sections[i];
@@ -72,7 +54,7 @@ var NguiScrollableDirective = (function () {
         // detect the current environment
         var parentElStyle = window.getComputedStyle(parentEl);
         var scrollContainerEl = parentElStyle.overflow === 'auto' ?
-            parentEl : document.scrollingElement || document.documentElement;
+            parentEl : document.body;
         var currentScrollTop = scrollContainerEl.scrollTop;
         var currentScrollLeft = scrollContainerEl.scrollLeft;
         // determine targetOffsetTop(or Left);
@@ -104,22 +86,20 @@ var NguiScrollableDirective = (function () {
             }, 50);
         }(10, scrollProp));
     };
-    NguiScrollableDirective.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[ngui-scrollable]'
-                },] },
-    ];
-    /** @nocollapse */
-    NguiScrollableDirective.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-        { type: core_1.Renderer, },
-        { type: undefined, decorators: [{ type: core_2.Inject, args: [core_2.PLATFORM_ID,] },] },
-    ]; };
-    NguiScrollableDirective.propDecorators = {
-        'horizontal': [{ type: core_1.Input },],
-        'elementVisible': [{ type: core_1.Output },],
-    };
     return NguiScrollableDirective;
 }());
+NguiScrollableDirective.decorators = [
+    { type: core_1.Directive, args: [{
+                selector: '[ngui-scrollable]'
+            },] },
+];
+/** @nocollapse */
+NguiScrollableDirective.ctorParameters = function () { return [
+    { type: core_1.ElementRef, },
+]; };
+NguiScrollableDirective.propDecorators = {
+    'horizontal': [{ type: core_1.Input },],
+    'elementVisible': [{ type: core_1.Output },],
+};
 exports.NguiScrollableDirective = NguiScrollableDirective;
 //# sourceMappingURL=scrollable.directive.js.map
